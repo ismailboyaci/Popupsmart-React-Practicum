@@ -33,8 +33,12 @@ function Content() {
       content: task,
       isCompleted: false,
     };
-    dispatch(createTodo(data));
-    setTask("");
+    if(task.length>3){
+      dispatch(createTodo(data));
+      setTask("");
+    }else{
+      alert("Task length must be greater than 3");
+    }
   };
 
   return (
