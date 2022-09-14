@@ -1,18 +1,18 @@
-import api from './index'
+import api from "./index";
 
 const getAll = () => {
   return api.get("/todos");
 };
-const get =(id) => {
+const get = (id) => {
   return api.get(`/todos/${id}`);
 };
 const create = (data) => {
-  return api.post("/todos",data);
+  return api.post("/todos", data);
 };
-const update = (id,data) => {
-  return api.put("/todos/"+id,data);
+const update = (id, data) => {
+  return api.put(`/todos/${id}`, data);
 };
-const remove = id => {
+const remove = (id) => {
   return api.delete(`/todos/${id}`);
 };
 

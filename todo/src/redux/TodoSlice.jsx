@@ -22,10 +22,10 @@ export const updateTodo = createAsyncThunk(
         return res.data;
     }
 );
-export const deleteTodo = createAsyncThunk(
+export const deleteTodos = createAsyncThunk(
     "todos/delete",
     async ({id})=>{
-         await TodoService.delete(id);
+         await TodoService.remove(id);
         return ({id})
     }
 );
@@ -54,16 +54,16 @@ export const TodoSlice = createSlice({
             };
           },
           [updateTodo.fulfilled]: (state, action) => {
-
             const index = state.todos.findIndex(tutorial => tutorial.id === action.payload.id);
             state.todos[index] = {
               ...state.todos[index],
               ...action.payload,
             };
+            return state
           },
-          [deleteTodo.fulfilled]: (state, action) => {
+          [deleteTodos.fulfilled]: (state, action) => {
             let index = state.todos.findIndex(({ id }) => id === action.payload.id);
-            state.todos.splice(index, 1);
+            state.todos.splice(index, 1)
           }
     }
 })
