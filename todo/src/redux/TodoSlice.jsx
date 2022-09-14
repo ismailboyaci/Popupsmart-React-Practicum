@@ -33,12 +33,8 @@ export const TodoSlice = createSlice({
     name: "todos",
     initialState: {
         todos:[],
-        darkmode:false
     },
     reducers: {
-        changeMode:(state,action) =>{
-            state.darkmode=action.payload
-        }
     },
     extraReducers:{
         [createTodo.fulfilled]: (state, action) => {
@@ -68,6 +64,5 @@ export const TodoSlice = createSlice({
     }
 })
 
-export const {changeMode} =TodoSlice.actions
 const { reducer } = TodoSlice;
 export default reducer;
